@@ -77,8 +77,8 @@ button:hover,
 }
 
 .topbar {
-  background: linear-gradient(90deg, rgba(241, 241, 241, 0.98), rgba(74, 62, 189, 0.95));
-  color: rgb(75, 54, 196);
+  background: linear-gradient(90deg, rgba(37, 10, 156, 0.98), rgba(35, 14, 219, 0.95));
+  color: rgb(207, 204, 221);
 }
 
 .menu-toggle {
@@ -176,10 +176,11 @@ button:hover,
   border-radius: 12px;
 }
 
-.nav-links a.active,
-.nav-links a:hover {
-  color: var(--primary);
-  background: rgba(10, 102, 194, 0.08);
+.nav-links a:hover,
+.nav-links a.active {
+  color: #ffffff;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
 }
 
 .hero {
@@ -825,6 +826,7 @@ button:hover,
 .navbar.scrolled {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
+
 .navbar.scrolled {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
@@ -880,6 +882,7 @@ button:hover,
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
+
 .whatsapp-float {
   position: fixed;
   right: 20px;
@@ -953,6 +956,13 @@ button:hover,
   z-index: 1000;
   transition: all 0.3s ease;
 }
+.navbar.scrolled .brand {
+  color: #ffffff;
+}
+.navbar.scrolled .nav-links a {
+  color: #ffffff;
+}
+
 
 .navbar.scrolled {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
@@ -1206,10 +1216,10 @@ button:hover,
 }
 /* DARK MODE */
 
-.theme-toggle {
+.navbar.scrolled .theme-toggle {
   border: none;
-  background: #0a66c2;
-  color: white;
+  background: #ffffff;
+  color: #0a66c2;
   width: 46px;
   height: 46px;
   border-radius: 50%;
