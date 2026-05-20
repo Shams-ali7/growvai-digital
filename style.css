@@ -611,9 +611,11 @@ button:hover,
   }
 
   .team-photo {
-    width: 80px;
-    height: 80px;
-  }
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 4px solid rgba(255,255,255,0.12);
+}
 }
 
 .cta-panel {
@@ -1592,5 +1594,22 @@ body.dark-mode .loader-wrapper {
     width: 140px;
   }
 
+}
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: linear-gradient(90deg,#0a66c2,#2b7cea);
+  z-index: 99999;
+}.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: linear-gradient(90deg,#0a66c2,#2b7cea);
+  z-index: 99999;
 }
 /* new update */

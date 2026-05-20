@@ -1,0 +1,346 @@
+// MOBILE MENU
+
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.getElementById('navLinks');
+
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+
+    const isOpen = navLinks.classList.contains('open');
+
+    menuToggle.setAttribute('aria-expanded', isOpen);
+  });
+}
+
+// SMOOTH SCROLL
+
+document.querySelectorAll('a[href*="#"]').forEach(link => {
+
+  link.addEventListener('click', function (e) {
+
+    const href = this.getAttribute('href');
+
+    if (href.includes('#')) {
+
+      const id = href.split('#')[1];
+
+      const target = document.getElementById(id);
+
+      if (target && window.location.pathname === this.pathname) {
+
+        e.preventDefault();
+
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+
+        navLinks?.classList.remove('open');
+
+      }
+
+    }
+
+  });
+
+});
+
+// NAVBAR SCROLL EFFECT
+
+const navbar = document.querySelector('.navbar');
+
+window.addEventListener('scroll', () => {
+
+  if (!navbar) return;
+
+  if (window.scrollY > 20) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+
+});
+
+// REVEAL ANIMATION
+
+const revealElements = document.querySelectorAll('.reveal');
+
+const revealOnScroll = () => {
+
+  revealElements.forEach(element => {
+
+    const elementTop = element.getBoundingClientRect().top;
+
+    if (elementTop < window.innerHeight - 80) {
+      element.classList.add('active');
+    }
+
+  });
+
+};
+
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+
+// BACK TO TOP
+
+const backToTop = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+
+  if (!backToTop) return;
+
+  if (window.scrollY > 250) {
+    backToTop.classList.add('show');
+  } else {
+    backToTop.classList.remove('show');
+  }
+
+});
+
+if (backToTop) {
+
+  backToTop.addEventListener('click', () => {
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+
+  });
+
+}
+
+// ACTIVE NAV LINK
+
+const currentPage =
+window.location.pathname.split('/').pop() || 'index.html';
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+
+  const linkPage = link.getAttribute('href').split('#')[0];
+
+  if (linkPage === currentPage) {
+    link.classList.add('active');
+  }
+
+});
+
+// FAQ
+
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+
+  const question = item.querySelector('.faq-question');
+
+  if (question) {
+
+    question.addEventListener('click', () => {
+      item.classList.toggle('active');
+    });
+
+  }
+
+});
+
+// TESTIMONIAL SLIDER
+
+const testimonialSlider =
+document.getElementById('testimonialSlider');
+
+if (testimonialSlider) {
+
+  const testimonialCards =
+  testimonialSlider.querySelectorAll('.testimonial-card');
+
+  if (testimonialCards.length > 1) {
+
+    let testimonialIndex = 0;
+
+    setInterval(() => {
+
+      testimonialCards[testimonialIndex]
+      .classList.remove('active');
+
+      testimonialIndex =
+      (testimonialIndex + 1) % testimonialCards.length;
+
+      testimonialCards[testimonialIndex]
+      .classList.add('active');
+
+    }, 3500);
+
+  }
+
+}
+
+// COUNTERS
+
+const counters = document.querySelectorAll('.counter');
+
+const runCounters = () => {
+
+  counters.forEach(counter => {
+
+    const target =
+    +counter.getAttribute('data-target');
+
+    const speed = 50;
+
+    const updateCount = () => {
+
+      const count = +counter.innerText;
+
+      const increment = Math.ceil(target / speed);
+
+      if (count < target) {
+
+        counter.innerText =
+        count + increment > target
+        ? target
+        : count + increment;
+
+        setTimeout(updateCount, 35);
+
+      } else {
+
+        if (target === 120) {
+          counter.innerText = target + '%';
+        } else if (target === 8) {
+          counter.innerText = target + '/10';
+        } else if (target === 30) {
+          counter.innerText = target + '+';
+        }
+
+      }
+
+    };
+
+    updateCount();
+
+  });
+
+};
+
+window.addEventListener('load', runCounters);
+
+// CONTACT FORM VALIDATION
+
+const contactForm =
+document.getElementById('contactForm');
+
+if (contactForm) {
+
+  contactForm.addEventListener('submit', function (e) {
+
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const message = document.getElementById('message');
+
+    const errors =
+    contactForm.querySelectorAll('.form-error');
+
+    errors.forEach(error => error.textContent = '');
+
+    let isValid = true;
+
+    if (!name.value.trim()) {
+
+      name.nextElementSibling.textContent =
+      'Please enter your full name.';
+
+      isValid = false;
+
+    }
+
+    const emailPattern =
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!email.value.trim()) {
+
+      email.nextElementSibling.textContent =
+      'Please enter your email.';
+
+      isValid = false;
+
+    } else if (!emailPattern.test(email.value.trim())) {
+
+      email.nextElementSibling.textContent =
+      'Please enter a valid email address.';
+
+      isValid = false;
+
+    }
+
+    if (!message.value.trim()) {
+
+      message.nextElementSibling.textContent =
+      'Please enter your project details.';
+
+      isValid = false;
+
+    }
+
+    if (!isValid) {
+      e.preventDefault();
+    }
+
+  });
+
+}
+
+// DARK MODE
+
+const themeToggle =
+document.getElementById('themeToggle');
+
+if (themeToggle) {
+
+  if (localStorage.getItem('theme') === 'dark') {
+
+    document.body.classList.add('dark-mode');
+
+    themeToggle.innerHTML = '☀️';
+
+  } else {
+
+    themeToggle.innerHTML = '🌙';
+
+  }
+
+  themeToggle.addEventListener('click', () => {
+
+    document.body.classList.toggle('dark-mode');
+
+    if (document.body.classList.contains('dark-mode')) {
+
+      localStorage.setItem('theme', 'dark');
+
+      themeToggle.innerHTML = '☀️';
+
+    } else {
+
+      localStorage.setItem('theme', 'light');
+
+      themeToggle.innerHTML = '🌙';
+
+    }
+
+  });
+
+}
+
+// LOADER
+
+window.addEventListener('load', () => {
+
+  const loader =
+  document.querySelector('.loader-wrapper');
+
+  if (loader) {
+    loader.classList.add('hidden');
+  }
+
+});
