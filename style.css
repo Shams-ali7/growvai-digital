@@ -77,8 +77,8 @@ button:hover,
 }
 
 .topbar {
-  background: linear-gradient(90deg, rgba(10, 102, 194, 0.98), rgba(23, 124, 245, 0.95));
-  color: white;
+  background: linear-gradient(90deg, rgba(249, 250, 250, 0.98), rgba(230, 233, 236, 0.95));
+  color: rgb(48, 16, 226);
 }
 
 .menu-toggle {
