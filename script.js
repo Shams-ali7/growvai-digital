@@ -345,32 +345,40 @@ window.addEventListener('load', () => {
 
 });
 
- async function getUser() {
+ async function getUsers() {
 
-  const response = await fetch('https://jsonplaceholder.typicode.com/users/1');
+  const response = await fetch('https://jsonplaceholder.typicode.com/users');
 
-  const data = await response.json();
+  const users = await response.json();
 
-  document.getElementById('userData').innerHTML = `
+  const userContainer = document.getElementById('userData');
 
-    <div class="user-card">
+  userContainer.innerHTML = '';
 
-      <h2>${data.name}</h2>
+  users.forEach(user => {
 
-      <p><strong>Email:</strong> ${data.email}</p>
+    userContainer.innerHTML += `
 
-      <p><strong>Phone:</strong> ${data.phone}</p>
+      <div class="user-card">
 
-      <p><strong>Website:</strong> ${data.website}</p>
+        <h2>${user.name}</h2>
 
-      <a href="#" class="btn btn-primary">
-        Contact User
-      </a>
+        <p><strong>Email:</strong> ${user.email}</p>
 
-    </div>
+        <p><strong>Phone:</strong> ${user.phone}</p>
 
-  `;
+        <p><strong>Website:</strong> ${user.website}</p>
+
+        <a href="#" class="btn btn-primary">
+          Contact User
+        </a>
+
+      </div>
+
+    `;
+
+  });
 
 }
 
-getUser();
+getUsers();
