@@ -331,63 +331,58 @@ if (themeToggle) {
   });
 
 }
-
-// LOADER
+const userContainer = document.getElementById("userData");
+const searchInput = document.getElementById("searchInput");
 
 let allUsers = [];
 
 async function getUsers() {
 
-  const userContainer = document.getElementById('userData');
-
+  // LOADER
   userContainer.innerHTML = `
-  
-    <div class="loader-box">
-      <div class="custom-loader"></div>
-      <p>Loading Users...</p>
-    </div>
-
-  `;
+  <div class="loader-box">
+    <div class="custom-loader"></div>
+    <p>Loading Users...</p>
+  </div>
+`;
 
   try {
 
-    const response = await fetch('https://jsonplaceholder.typicode.com/users');
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/users"
+    );
 
     const users = await response.json();
 
     allUsers = users;
 
-    displayUsers(users);
+    renderUsers(users);
 
-  } catch(error) {
-
-    userContainer.innerHTML = `
-
-      <div class="error-box">
-        Failed to load users ❌
-      </div>
-
-    `;
+  } catch (error) {
 
     console.log(error);
 
+  userContainer.innerHTML = `
+  <div class="error-box">
+    Failed to load users ❌
+  </div>
+`;
   }
 
 }
 
-function displayUsers(users) {
+// RENDER USERS
+function renderUsers(users) {
 
-  const userContainer = document.getElementById('userData');
-
-  userContainer.innerHTML = '';
+  userContainer.innerHTML = "";
 
   users.forEach(user => {
 
     userContainer.innerHTML += `
 
-      <div class="user-card">
+      <div class="service-card">
 
-        <h2>${user.name}</h2>
+        <h3>${user.name}</h3>
 
         <p><strong>Email:</strong> ${user.email}</p>
 
@@ -403,21 +398,19 @@ function displayUsers(users) {
 
 }
 
-document
-  .getElementById('searchInput')
-  .addEventListener('input', function(e) {
+// SEARCH
+searchInput.addEventListener("input", function (e) {
 
-    const searchText = e.target.value.toLowerCase();
+  const value = e.target.value.toLowerCase();
 
-    const filteredUsers = allUsers.filter(user => {
+  const filteredUsers = allUsers.filter(user =>
+    user.name.toLowerCase().includes(value)
+  );
 
-      return user.name.toLowerCase().includes(searchText);
-
-    });
-
-    displayUsers(filteredUsers);
+  renderUsers(filteredUsers);
 
 });
 
+// START
 getUsers();
-console.log("JS FILE CONNECTED");
+
