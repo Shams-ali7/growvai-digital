@@ -334,23 +334,12 @@ if (themeToggle) {
 
 // LOADER
 
-window.addEventListener('load', () => {
+let allUsers = [];
 
-  const loader =
-  document.querySelector('.loader-wrapper');
-
-  if (loader) {
-    loader.classList.add('hidden');
-  }
-
-});
-
-// API INTEGRATION
 async function getUsers() {
 
   const userContainer = document.getElementById('userData');
 
-  // Loading State
   userContainer.innerHTML = `
   
     <div class="loader-box">
@@ -366,31 +355,9 @@ async function getUsers() {
 
     const users = await response.json();
 
-    userContainer.innerHTML = '';
+    allUsers = users;
 
-    users.forEach(user => {
-
-      userContainer.innerHTML += `
-
-        <div class="user-card">
-
-          <h2>${user.name}</h2>
-
-          <p><strong>Email:</strong> ${user.email}</p>
-
-          <p><strong>Phone:</strong> ${user.phone}</p>
-
-          <p><strong>Website:</strong> ${user.website}</p>
-
-          <a href="#" class="btn btn-primary">
-            Contact User
-          </a>
-
-        </div>
-
-      `;
-
-    });
+    displayUsers(users);
 
   } catch(error) {
 
@@ -407,5 +374,49 @@ async function getUsers() {
   }
 
 }
+
+function displayUsers(users) {
+
+  const userContainer = document.getElementById('userData');
+
+  userContainer.innerHTML = '';
+
+  users.forEach(user => {
+
+    userContainer.innerHTML += `
+
+      <div class="user-card">
+
+        <h2>${user.name}</h2>
+
+        <p><strong>Email:</strong> ${user.email}</p>
+
+        <p><strong>Phone:</strong> ${user.phone}</p>
+
+        <p><strong>Website:</strong> ${user.website}</p>
+
+      </div>
+
+    `;
+
+  });
+
+}
+
+document
+  .getElementById('searchInput')
+  .addEventListener('input', function(e) {
+
+    const searchText = e.target.value.toLowerCase();
+
+    const filteredUsers = allUsers.filter(user => {
+
+      return user.name.toLowerCase().includes(searchText);
+
+    });
+
+    displayUsers(filteredUsers);
+
+});
 
 getUsers();
