@@ -420,3 +420,4 @@ document
 });
 
 getUsers();
+console.log("JS FILE CONNECTED");
