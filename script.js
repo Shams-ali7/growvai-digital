@@ -344,14 +344,21 @@ window.addEventListener('load', () => {
   }
 
 });
-fetch('https://jsonplaceholder.typicode.com/users/1')
-  .then(response => response.json())
-  .then(data => {
 
-    console.log(data);
+  async function getUser() {
 
-    console.log(data.name);
+  const response = await fetch('https://jsonplaceholder.typicode.com/users/1');
 
-    console.log(data.email);
+  const data = await response.json();
 
-  });
+  document.getElementById('userData').innerHTML = `
+  
+    <h2>${data.name}</h2>
+    <p>${data.email}</p>
+    <p>${data.phone}</p>
+
+  `;
+
+}
+
+getUser();
