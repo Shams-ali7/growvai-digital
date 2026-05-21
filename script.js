@@ -345,17 +345,29 @@ window.addEventListener('load', () => {
 
 });
 
-  async function getUser() {
+ async function getUser() {
 
   const response = await fetch('https://jsonplaceholder.typicode.com/users/1');
 
   const data = await response.json();
 
   document.getElementById('userData').innerHTML = `
-  
-    <h2>${data.name}</h2>
-    <p>${data.email}</p>
-    <p>${data.phone}</p>
+
+    <div class="user-card">
+
+      <h2>${data.name}</h2>
+
+      <p><strong>Email:</strong> ${data.email}</p>
+
+      <p><strong>Phone:</strong> ${data.phone}</p>
+
+      <p><strong>Website:</strong> ${data.website}</p>
+
+      <a href="#" class="btn btn-primary">
+        Contact User
+      </a>
+
+    </div>
 
   `;
 
