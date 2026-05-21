@@ -345,39 +345,66 @@ window.addEventListener('load', () => {
 
 });
 
- async function getUsers() {
-
-  const response = await fetch('https://jsonplaceholder.typicode.com/users');
-
-  const users = await response.json();
+// API INTEGRATION
+async function getUsers() {
 
   const userContainer = document.getElementById('userData');
 
-  userContainer.innerHTML = '';
+  // Loading State
+  userContainer.innerHTML = `
+  
+    <div class="loader-box">
+      <div class="custom-loader"></div>
+      <p>Loading Users...</p>
+    </div>
 
-  users.forEach(user => {
+  `;
 
-    userContainer.innerHTML += `
+  try {
 
-      <div class="user-card">
+    const response = await fetch('https://jsonplaceholder.typicode.com/users');
 
-        <h2>${user.name}</h2>
+    const users = await response.json();
 
-        <p><strong>Email:</strong> ${user.email}</p>
+    userContainer.innerHTML = '';
 
-        <p><strong>Phone:</strong> ${user.phone}</p>
+    users.forEach(user => {
 
-        <p><strong>Website:</strong> ${user.website}</p>
+      userContainer.innerHTML += `
 
-        <a href="#" class="btn btn-primary">
-          Contact User
-        </a>
+        <div class="user-card">
 
+          <h2>${user.name}</h2>
+
+          <p><strong>Email:</strong> ${user.email}</p>
+
+          <p><strong>Phone:</strong> ${user.phone}</p>
+
+          <p><strong>Website:</strong> ${user.website}</p>
+
+          <a href="#" class="btn btn-primary">
+            Contact User
+          </a>
+
+        </div>
+
+      `;
+
+    });
+
+  } catch(error) {
+
+    userContainer.innerHTML = `
+
+      <div class="error-box">
+        Failed to load users ❌
       </div>
 
     `;
 
-  });
+    console.log(error);
+
+  }
 
 }
 
