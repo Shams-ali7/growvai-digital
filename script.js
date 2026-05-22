@@ -398,10 +398,6 @@ function renderUsers(users) {
 
 }
 
-// SEARCH
-searchInput.addEventListener("input", function (e) {
-
-  const value = e.target.value.toLowerCase();
 
   const filteredUsers = allUsers.filter(user =>
     user.name.toLowerCase().includes(value)
