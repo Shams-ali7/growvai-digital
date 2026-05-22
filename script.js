@@ -483,3 +483,16 @@ if(savedService){
   savedText.innerText = savedService;
 
 }
+const removeBtn =
+document.getElementById("removeServiceBtn");
+
+removeBtn.addEventListener("click", function(){
+
+  localStorage.removeItem("savedService");
+
+  savedText.innerText =
+  "No service saved yet";
+
+  alert("Saved service removed!");
+
+});
