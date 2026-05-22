@@ -402,6 +402,13 @@ function renderUsers(data) {
 
   userContainer.innerHTML = "";
 
+  if(data.length === 0){
+    userContainer.innerHTML = `
+      <p>No user found ❌</p>
+    `;
+    return;
+  }
+
   data.forEach(user => {
 
     userContainer.innerHTML += `
@@ -425,9 +432,9 @@ function renderUsers(data) {
 
 
 // SEARCH
-searchInput.addEventListener("input", function(e) {
+searchInput.addEventListener("keyup", function() {
 
-  const value = e.target.value.toLowerCase();
+  const value = searchInput.value.toLowerCase();
 
   const filteredUsers = users.filter(user =>
     user.name.toLowerCase().includes(value)
@@ -443,3 +450,6 @@ searchInput.addEventListener("input", function(e) {
 renderUsers(users);
 
 });
+
+
+
