@@ -356,3 +356,86 @@ window.addEventListener("load", function () {
   }
 
 });
+const userContainer = document.getElementById("userData");
+const searchInput = document.getElementById("searchInput");
+
+const users = [
+
+  {
+    name: "Ali Khan",
+    role: "SEO Expert",
+    email: "ali@growvia.com"
+  },
+
+  {
+    name: "Ahmed Raza",
+    role: "Meta Ads Specialist",
+    email: "ahmed@growvia.com"
+  },
+
+  {
+    name: "Usman Tariq",
+    role: "Web Developer",
+    email: "usman@growvia.com"
+  },
+
+  {
+    name: "Hamza Malik",
+    role: "Graphic Designer",
+    email: "hamza@growvia.com"
+  },
+
+  {
+    name: "Bilal Ahmed",
+    role: "Content Writer",
+    email: "bilal@growvia.com"
+  }
+
+];
+
+
+
+// SHOW USERS
+function renderUsers(data) {
+
+  userContainer.innerHTML = "";
+
+  data.forEach(user => {
+
+    userContainer.innerHTML += `
+
+      <div class="service-card">
+
+        <h3>${user.name}</h3>
+
+        <p><strong>Role:</strong> ${user.role}</p>
+
+        <p><strong>Email:</strong> ${user.email}</p>
+
+      </div>
+
+    `;
+
+  });
+
+}
+
+
+
+// SEARCH
+searchInput.addEventListener("input", function(e) {
+
+  const value = e.target.value.toLowerCase();
+
+  const filteredUsers = users.filter(user =>
+    user.name.toLowerCase().includes(value)
+  );
+
+  renderUsers(filteredUsers);
+
+});
+
+
+
+// FIRST LOAD
+renderUsers(users);
