@@ -440,22 +440,19 @@ function renderUsers(data) {
 
 
 // SEARCH
-searchInput.addEventListener("keyup", function () {
+searchInput.oninput = function () {
 
-  const value = searchInput.value.toLowerCase();
+  const value = this.value.toLowerCase();
 
-  const filteredUsers = users.filter(user =>
-    user.name.toLowerCase().includes(value)
-  );
+  const filteredUsers = users.filter(function(user){
+
+    return user.name.toLowerCase().includes(value);
+
+  });
 
   renderUsers(filteredUsers);
 
-});
-
-
-
-// FIRST LOAD
-renderUsers(users);
+};
 
 });
 
