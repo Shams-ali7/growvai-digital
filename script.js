@@ -348,10 +348,24 @@ async function getUsers() {
 
   try {
 
-    const response = await fetch(
-      "https://jsonplaceholder.typicode.com/users"
-    );
+    const users = [
+  {
+    name: "Shams Riaz",
+    email: "shams@gmail.com",
+    phone: "0300-0000000",
+    website: "growvia.com"
+  },
+  {
+    name: "Ali Khan",
+    email: "ali@gmail.com",
+    phone: "0311-1111111",
+    website: "alikhan.com"
+  }
+];
 
+allUsers = users;
+
+renderUsers(users);
     const users = await response.json();
     console.log(users);
 
@@ -389,7 +403,7 @@ function renderUsers(users) {
 
         <p><strong>Phone:</strong> ${user.phone}</p>
 
-        <p><strong>Website:</strong> ${user.website}</p>
+        <p><strong>Website:</strong> ${user.company.name}</p>
 
       </div>
 
