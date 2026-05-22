@@ -353,6 +353,7 @@ async function getUsers() {
     );
 
     const users = await response.json();
+    console.log(users);
 
     allUsers = users;
 
@@ -397,15 +398,24 @@ function renderUsers(users) {
   });
 
 }
+if (searchInput) {
+
+  searchInput.addEventListener("input", function (e) {
+
+    const value = e.target.value.toLowerCase();
+
+    const filteredUsers = allUsers.filter(user =>
+      user.name.toLowerCase().includes(value)
+    );
+
+    renderUsers(filteredUsers);
+
+  });
+
+}
 
 
-  const filteredUsers = allUsers.filter(user =>
-    user.name.toLowerCase().includes(value)
-  );
 
-  renderUsers(filteredUsers);
-
-});
 
 // START
 getUsers();
