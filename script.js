@@ -472,3 +472,14 @@ saveButtons.forEach(button => {
   });
 
 });
+const savedText =
+document.getElementById("savedServiceText");
+
+const savedService =
+localStorage.getItem("savedService");
+
+if(savedService){
+
+  savedText.innerText = savedService;
+
+}
