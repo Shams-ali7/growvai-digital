@@ -456,3 +456,19 @@ searchInput.oninput = function () {
 
 });
 
+const saveButtons = document.querySelectorAll(".save-btn");
+
+saveButtons.forEach(button => {
+
+  button.addEventListener("click", function () {
+
+    const serviceName =
+      this.parentElement.querySelector("h3").innerText;
+
+    localStorage.setItem("savedService", serviceName);
+
+    alert(serviceName + " saved successfully!");
+
+  });
+
+});
