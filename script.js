@@ -427,7 +427,17 @@ if (searchInput) {
   });
 
 }
+const response = await fetch(
+  "https://dummyjson.com/users"
+);
 
+const data = await response.json();
+
+const users = data.users;
+
+allUsers = users;
+
+renderUsers(users);
 
 
 
