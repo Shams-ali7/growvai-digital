@@ -356,6 +356,8 @@ window.addEventListener("load", function () {
   }
 
 });
+document.addEventListener("DOMContentLoaded", () => {
+
 const userContainer = document.getElementById("userData");
 const searchInput = document.getElementById("searchInput");
 
@@ -439,3 +441,5 @@ searchInput.addEventListener("input", function(e) {
 
 // FIRST LOAD
 renderUsers(users);
+
+});
