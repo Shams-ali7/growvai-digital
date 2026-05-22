@@ -332,17 +332,16 @@ if (themeToggle) {
 
 }
 const userContainer = document.getElementById("userData");
-const searchInput = document.getElementById("searchInput");
 
-let allUsers = [];
+console.log("JS FILE CONNECTED");
 
-async function getUsers() {
-
-  // LOADER
-  userContainer.innerHTML = `
-  <div class="loader-box">
-    <div class="custom-loader"></div>
-    <p>Loading Users...</p>
+userContainer.innerHTML = `
+  <div style="
+    color:white;
+    padding:30px;
+    font-size:24px;
+  ">
+    TEST SUCCESS 😄🔥
   </div>
 `;
 
@@ -384,7 +383,7 @@ renderUsers(users);
 `;
   }
 
-}
+
 
 // RENDER USERS
 function renderUsers(users) {
@@ -444,3 +443,12 @@ renderUsers(users);
 // START
 getUsers();
 
+window.addEventListener("load", function () {
+
+  const loader = document.querySelector(".loader-wrapper");
+
+  if (loader) {
+    loader.style.display = "none";
+  }
+
+});
