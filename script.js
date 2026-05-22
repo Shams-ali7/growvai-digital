@@ -361,6 +361,12 @@ document.addEventListener("DOMContentLoaded", () => {
 const userContainer = document.getElementById("userData");
 const searchInput = document.getElementById("searchInput");
 
+
+// AGAR ELEMENT PAGE MAY NA HU TO JS STOP
+if (!userContainer || !searchInput) return;
+
+
+
 const users = [
 
   {
@@ -402,10 +408,12 @@ function renderUsers(data) {
 
   userContainer.innerHTML = "";
 
-  if(data.length === 0){
+  if (data.length === 0) {
+
     userContainer.innerHTML = `
       <p>No user found ❌</p>
     `;
+
     return;
   }
 
@@ -432,7 +440,7 @@ function renderUsers(data) {
 
 
 // SEARCH
-searchInput.addEventListener("keyup", function() {
+searchInput.addEventListener("keyup", function () {
 
   const value = searchInput.value.toLowerCase();
 
@@ -450,6 +458,4 @@ searchInput.addEventListener("keyup", function() {
 renderUsers(users);
 
 });
-
-
 
