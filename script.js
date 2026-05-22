@@ -456,18 +456,41 @@ searchInput.oninput = function () {
 
 });
 
-const saveButtons = document.querySelectorAll(".save-btn");
+const saveButtons =
+document.querySelectorAll(".save-btn");
 
 saveButtons.forEach(button => {
 
   button.addEventListener("click", function () {
 
     const serviceName =
-      this.parentElement.querySelector("h3").innerText;
+    this.parentElement.querySelector("h3").innerText;
 
-    localStorage.setItem("savedService", serviceName);
+    
+    let savedServices =
+    JSON.parse(
+      localStorage.getItem("savedServices")
+    ) || [];
 
-    alert(serviceName + " saved successfully!");
+
+    if(!savedServices.includes(serviceName)){
+
+      savedServices.push(serviceName);
+
+      localStorage.setItem(
+        "savedServices",
+        JSON.stringify(savedServices)
+      );
+
+      alert(serviceName + " saved!");
+
+    } else {
+
+      alert("Service already saved!");
+
+    }
+
+    showSavedServices();
 
   });
 
@@ -475,24 +498,38 @@ saveButtons.forEach(button => {
 const savedText =
 document.getElementById("savedServiceText");
 
-const savedService =
-localStorage.getItem("savedService");
+function showSavedServices(){
 
-if(savedService){
+  let savedServices =
+  JSON.parse(
+    localStorage.getItem("savedServices")
+  ) || [];
 
-  savedText.innerText = savedService;
+  
+  if(savedServices.length > 0){
+
+    savedText.innerHTML =
+    savedServices.join("<br>");
+
+  } else {
+
+    savedText.innerText =
+    "No service saved yet";
+
+  }
 
 }
+
+showSavedServices();
 const removeBtn =
 document.getElementById("removeServiceBtn");
 
 removeBtn.addEventListener("click", function(){
 
-  localStorage.removeItem("savedService");
+  localStorage.removeItem("savedServices");
 
-  savedText.innerText =
-  "No service saved yet";
+  showSavedServices();
 
-  alert("Saved service removed!");
+  alert("All saved services removed!");
 
 });
