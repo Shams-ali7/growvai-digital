@@ -530,15 +530,19 @@ showSavedServices();
 const removeBtn =
 document.getElementById("removeServiceBtn");
 
-removeBtn.addEventListener("click", function(){
+if(removeBtn){
 
-  localStorage.removeItem("savedServices");
+  removeBtn.addEventListener("click", function(){
 
-  showSavedServices();
+    localStorage.removeItem("savedServices");
 
-  alert("All saved services removed!");
+    showSavedServices();
 
-});
+    alert("All saved services removed!");
+
+  });
+
+}
 const detailsButtons =
 document.querySelectorAll(".details-btn");
 
@@ -577,18 +581,44 @@ detailsButtons.forEach(button => {
 
 });
 
-closeModal.addEventListener("click", function(){
+if(modal && closeModal){
 
-  modal.classList.remove("active");
+  detailsButtons.forEach(button => {
 
-});
+    button.addEventListener("click", function(){
 
-modal.addEventListener("click", function(e){
+      const serviceCard =
+      this.closest(".service-card");
 
-  if(e.target === modal){
+      const serviceName =
+      serviceCard.querySelector("h3").innerText;
+
+      modalTitle.innerText = serviceName;
+
+      modalDescription.innerText =
+      serviceName +
+      " is one of our premium digital marketing services designed to help businesses grow faster.";
+
+      modal.classList.add("active");
+
+    });
+
+  });
+
+  closeModal.addEventListener("click", function(){
 
     modal.classList.remove("active");
 
-  }
+  });
 
-});
+  modal.addEventListener("click", function(e){
+
+    if(e.target === modal){
+
+      modal.classList.remove("active");
+
+    }
+
+  });
+
+}
