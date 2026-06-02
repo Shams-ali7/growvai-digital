@@ -497,15 +497,21 @@ saveButtons.forEach(button => {
 });
 const savedText =
 document.getElementById("savedServiceText");
+if(savedText){
+
+  showSavedServices();
+
+}
 
 function showSavedServices(){
+
+  if(!savedText) return;
 
   let savedServices =
   JSON.parse(
     localStorage.getItem("savedServices")
   ) || [];
 
-  
   if(savedServices.length > 0){
 
     savedText.innerHTML =
