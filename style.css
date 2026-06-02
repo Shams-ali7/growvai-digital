@@ -1976,3 +1976,18 @@ body.dark-mode .loader-wrapper {
   }
 
 }
+body.light-mode .nav-links a,
+body.light-theme .nav-links a {
+  color: #1e293b;
+}
+
+body.light-mode .nav-links a:hover,
+body.light-theme .nav-links a:hover {
+  color: #0a66c2;
+}
+
+body.light-mode .nav-links a.active,
+body.light-theme .nav-links a.active {
+  background: rgba(10, 102, 194, 0.12);
+  color: #0a66c2;
+}
