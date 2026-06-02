@@ -1976,18 +1976,22 @@ body.dark-mode .loader-wrapper {
   }
 
 }
-body.light-mode .nav-links a,
-body.light-theme .nav-links a {
-  color: #1e293b;
+.nav-links a{
+  color: #1e293b !important;
 }
 
-body.light-mode .nav-links a:hover,
-body.light-theme .nav-links a:hover {
-  color: #0a66c2;
+body.dark-mode .nav-links a{
+  color: #f1f5f9 !important;
 }
 
-body.light-mode .nav-links a.active,
-body.light-theme .nav-links a.active {
-  background: rgba(10, 102, 194, 0.12);
-  color: #0a66c2;
+.menu-toggle span,
+.menu-toggle span::before,
+.menu-toggle span::after{
+  background: #1e293b !important;
+}
+
+body.dark-mode .menu-toggle span,
+body.dark-mode .menu-toggle span::before,
+body.dark-mode .menu-toggle span::after{
+  background: #ffffff !important;
 }
