@@ -558,29 +558,6 @@ document.getElementById("modalDescription");
 const closeModal =
 document.getElementById("closeModal");
 
-detailsButtons.forEach(button => {
-
-  button.addEventListener("click", function(){
-
-    const serviceCard =
-    this.parentElement;
-
-    const serviceName =
-    serviceCard.querySelector("h3").innerText;
-
-    modalTitle.innerText =
-    serviceName;
-
-    modalDescription.innerText =
-    serviceName +
-    " is one of our premium digital marketing services designed to help businesses grow faster.";
-
-    modal.classList.add("active");
-
-  });
-
-});
-
 if(modal && closeModal){
 
   detailsButtons.forEach(button => {
@@ -588,12 +565,13 @@ if(modal && closeModal){
     button.addEventListener("click", function(){
 
       const serviceCard =
-      this.closest(".service-card");
+      this.parentElement;
 
       const serviceName =
       serviceCard.querySelector("h3").innerText;
 
-      modalTitle.innerText = serviceName;
+      modalTitle.innerText =
+      serviceName;
 
       modalDescription.innerText =
       serviceName +
