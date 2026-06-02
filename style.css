@@ -1995,3 +1995,81 @@ body.dark-mode .menu-toggle span::before,
 body.dark-mode .menu-toggle span::after{
   background: #ffffff !important;
 }
+.modal{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+}
+
+.modal.active{
+  display: flex;
+}
+
+.modal-content{
+  width: 90%;
+  max-width: 600px;
+
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 24px;
+
+  position: relative;
+
+  animation: popup 0.3s ease;
+}
+
+.close-modal{
+  position: absolute;
+  right: 20px;
+  top: 15px;
+
+  font-size: 30px;
+  cursor: pointer;
+}
+
+@keyframes popup{
+
+  from{
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to{
+    transform: scale(1);
+    opacity: 1;
+  }
+
+}
+.details-btn{
+
+  margin-top: 12px;
+
+  padding: 10px 18px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #16a34a;
+
+  color: white;
+
+  cursor: pointer;
+
+  font-weight: 600;
+
+}
+
+.details-btn:hover{
+
+  background: #15803d;
+
+}
