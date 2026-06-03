@@ -600,3 +600,36 @@ if(modal && closeModal){
   });
 
 }
+const filterBtns =
+document.querySelectorAll(".filter-btn");
+
+const portfolioCards =
+document.querySelectorAll(".portfolio-card");
+
+filterBtns.forEach(btn => {
+
+  btn.addEventListener("click", () => {
+
+    const filter =
+    btn.dataset.filter;
+
+    portfolioCards.forEach(card => {
+
+      if (
+        filter === "all" ||
+        card.dataset.category === filter
+      ) {
+
+        card.style.display = "block";
+
+      } else {
+
+        card.style.display = "none";
+
+      }
+
+    });
+
+  });
+
+});

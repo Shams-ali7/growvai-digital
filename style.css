@@ -2073,3 +2073,38 @@ body.dark-mode .menu-toggle span::after{
   background: #15803d;
 
 }
+body.dark-mode .modal-content{
+  background: #1e293b;
+  color: white;
+}
+
+body.dark-mode .modal-content h2{
+  color: white;
+}
+
+body.dark-mode .modal-content p{
+  color: #d1d5db;
+}
+
+body.dark-mode .close-modal{
+  color: white;
+}
+.filter-btn{
+  padding:12px 22px;
+  border:none;
+  border-radius:12px;
+  margin:5px;
+  cursor:pointer;
+  background:#0a66c2;
+  color:#fff;
+  font-weight:600;
+  transition:0.3s ease;
+}
+
+.filter-btn:hover{
+  transform:translateY(-2px);
+}
+
+body.dark-mode .filter-btn{
+  background:#1e40af;
+}
