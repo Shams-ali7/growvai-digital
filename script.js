@@ -643,11 +643,15 @@ if(loadUsersBtn){
 
   loadUsersBtn.addEventListener("click", () => {
 
+    loader.style.display = "block";
+     
     fetch("https://jsonplaceholder.typicode.com/users")
 
     .then(response => response.json())
 
     .then(users => {
+      
+      loader.style.display = "none";
 
       apiUsers.innerHTML = "";
 
