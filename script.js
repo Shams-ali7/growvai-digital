@@ -639,18 +639,26 @@ document.getElementById("loadUsersBtn");
 const apiUsers =
 document.getElementById("apiUsers");
 
+const loader =
+document.getElementById("loader");
+
+const errorMessage =
+document.getElementById("errorMessage");
+
 if(loadUsersBtn){
 
   loadUsersBtn.addEventListener("click", () => {
 
+    errorMessage.innerHTML = "";
+
     loader.style.display = "block";
-     
+
     fetch("https://jsonplaceholder.typicode.com/users")
 
     .then(response => response.json())
 
     .then(users => {
-      
+
       loader.style.display = "none";
 
       apiUsers.innerHTML = "";
@@ -666,6 +674,15 @@ if(loadUsersBtn){
         `;
 
       });
+
+    })
+
+    .catch(error => {
+
+      loader.style.display = "none";
+
+      errorMessage.innerHTML =
+      "❌ Failed to load users. Please try again.";
 
     });
 

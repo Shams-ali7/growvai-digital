@@ -2108,3 +2108,9 @@ body.dark-mode .close-modal{
 body.dark-mode .filter-btn{
   background:#1e40af;
 }
+#errorMessage{
+  text-align:center;
+  color:red;
+  font-weight:600;
+  margin:20px 0;
+}
