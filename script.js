@@ -633,3 +633,38 @@ filterBtns.forEach(btn => {
   });
 
 });
+const loadUsersBtn =
+document.getElementById("loadUsersBtn");
+
+const apiUsers =
+document.getElementById("apiUsers");
+
+if(loadUsersBtn){
+
+  loadUsersBtn.addEventListener("click", () => {
+
+    fetch("https://jsonplaceholder.typicode.com/users")
+
+    .then(response => response.json())
+
+    .then(users => {
+
+      apiUsers.innerHTML = "";
+
+      users.forEach(user => {
+
+        apiUsers.innerHTML += `
+          <div class="service-card">
+            <h3>${user.name}</h3>
+            <p>${user.email}</p>
+            <p>${user.phone}</p>
+          </div>
+        `;
+
+      });
+
+    });
+
+  });
+
+}
