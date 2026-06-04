@@ -1,4 +1,5 @@
 // MOBILE MENU
+let allUsers = [];
 
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.getElementById('navLinks');
@@ -645,6 +646,9 @@ document.getElementById("loader");
 const errorMessage =
 document.getElementById("errorMessage");
 
+const searchInput =
+document.getElementById("searchInput");
+
 if(loadUsersBtn){
 
   loadUsersBtn.addEventListener("click", () => {
@@ -653,11 +657,12 @@ if(loadUsersBtn){
 
     loader.style.display = "block";
 
-    fetch("https://wrong-api-url.com/users")
+    fetch("https://jsonplaceholder.typicode.com/abc")
 
     .then(response => response.json())
 
     .then(users => {
+      allUsers = users;
 
       loader.style.display = "none";
 
@@ -683,6 +688,40 @@ if(loadUsersBtn){
 
       errorMessage.innerHTML =
       "❌ Failed to load users. Please try again.";
+
+    });
+
+  });
+
+}
+
+if(searchInput){
+
+  searchInput.addEventListener("input", function(){
+
+    const value =
+    this.value.toLowerCase();
+
+    const filteredUsers =
+    allUsers.filter(user => {
+
+      return user.name
+      .toLowerCase()
+      .includes(value);
+
+    });
+
+    apiUsers.innerHTML = "";
+
+    filteredUsers.forEach(user => {
+
+      apiUsers.innerHTML += `
+        <div class="service-card">
+          <h3>${user.name}</h3>
+          <p>${user.email}</p>
+          <p>${user.phone}</p>
+        </div>
+      `;
 
     });
 
