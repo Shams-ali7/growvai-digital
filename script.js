@@ -653,7 +653,7 @@ if(loadUsersBtn){
 
     loader.style.display = "block";
 
-    fetch("https://jsonplaceholder.typicode.com/users")
+    fetch("https://wrong-api-url.com/users")
 
     .then(response => response.json())
 
