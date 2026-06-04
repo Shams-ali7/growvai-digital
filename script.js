@@ -657,7 +657,7 @@ if(loadUsersBtn){
 
     loader.style.display = "block";
 
-     fetch("https://jsonplaceholder.typicode.com/abc")
+    fetch("https://jsonplaceholder.typicode.com/users")
 
 
     .then(response => response.json())
