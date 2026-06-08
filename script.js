@@ -634,6 +634,12 @@ filterBtns.forEach(btn => {
   });
 
 });
+let allUsers = [];
+
+let currentPage = 1;
+
+const usersPerPage = 5;
+
 const loadUsersBtn =
 document.getElementById("loadUsersBtn");
 
@@ -649,6 +655,45 @@ document.getElementById("errorMessage");
 const searchInput =
 document.getElementById("searchInput");
 
+const prevBtn =
+document.getElementById("prevBtn");
+
+const nextBtn =
+document.getElementById("nextBtn");
+
+const pageNumber =
+document.getElementById("pageNumber");
+
+function renderUsers(users){
+
+  apiUsers.innerHTML = "";
+
+  const start =
+  (currentPage - 1) * usersPerPage;
+
+  const end =
+  start + usersPerPage;
+
+  const paginatedUsers =
+  users.slice(start, end);
+
+  paginatedUsers.forEach(user => {
+
+    apiUsers.innerHTML += `
+      <div class="service-card">
+        <h3>${user.name}</h3>
+        <p>${user.email}</p>
+        <p>${user.phone}</p>
+      </div>
+    `;
+
+  });
+
+  pageNumber.innerText =
+  `Page ${currentPage}`;
+
+}
+
 if(loadUsersBtn){
 
   loadUsersBtn.addEventListener("click", () => {
@@ -663,23 +708,14 @@ if(loadUsersBtn){
     .then(response => response.json())
 
     .then(users => {
+
       allUsers = users;
+
+      currentPage = 1;
 
       loader.style.display = "none";
 
-      apiUsers.innerHTML = "";
-
-      users.forEach(user => {
-
-        apiUsers.innerHTML += `
-          <div class="service-card">
-            <h3>${user.name}</h3>
-            <p>${user.email}</p>
-            <p>${user.phone}</p>
-          </div>
-        `;
-
-      });
+      renderUsers(allUsers);
 
     })
 
@@ -712,19 +748,47 @@ if(searchInput){
 
     });
 
-    apiUsers.innerHTML = "";
+    currentPage = 1;
 
-    filteredUsers.forEach(user => {
+    renderUsers(filteredUsers);
 
-      apiUsers.innerHTML += `
-        <div class="service-card">
-          <h3>${user.name}</h3>
-          <p>${user.email}</p>
-          <p>${user.phone}</p>
-        </div>
-      `;
+  });
 
-    });
+}
+
+if(nextBtn){
+
+  nextBtn.addEventListener("click", () => {
+
+    const totalPages =
+    Math.ceil(
+      allUsers.length /
+      usersPerPage
+    );
+
+    if(currentPage < totalPages){
+
+      currentPage++;
+
+      renderUsers(allUsers);
+
+    }
+
+  });
+
+}
+
+if(prevBtn){
+
+  prevBtn.addEventListener("click", () => {
+
+    if(currentPage > 1){
+
+      currentPage--;
+
+      renderUsers(allUsers);
+
+    }
 
   });
 
