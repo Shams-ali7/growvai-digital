@@ -570,6 +570,12 @@ document.getElementById("nextBtn");
 const pageNumber =
 document.getElementById("pageNumber");
 
+const sortAZ =
+document.getElementById("sortAZ");
+
+const sortZA =
+document.getElementById("sortZA");
+
 function renderUsers(users){
 
   apiUsers.innerHTML = "";
@@ -694,6 +700,38 @@ if(prevBtn){
       renderUsers(allUsers);
 
     }
+
+  });
+
+}
+
+if(sortAZ){
+
+  sortAZ.addEventListener("click", () => {
+
+    allUsers.sort((a,b) =>
+      a.name.localeCompare(b.name)
+    );
+
+    currentPage = 1;
+
+    renderUsers(allUsers);
+
+  });
+
+}
+
+if(sortZA){
+
+  sortZA.addEventListener("click", () => {
+
+    allUsers.sort((a,b) =>
+      b.name.localeCompare(a.name)
+    );
+
+    currentPage = 1;
+
+    renderUsers(allUsers);
 
   });
 
