@@ -115,16 +115,16 @@ if (backToTop) {
 
 // ACTIVE NAV LINK
 
-const currentPage =
+const activePage =
 window.location.pathname.split('/').pop() || 'index.html';
 
 document.querySelectorAll('.nav-links a').forEach(link => {
 
   const linkPage = link.getAttribute('href').split('#')[0];
 
-  if (linkPage === currentPage) {
-    link.classList.add('active');
-  }
+  if (linkPage === activePage) {
+  link.classList.add('active');
+}
 
 });
 
