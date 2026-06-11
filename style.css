@@ -2200,13 +2200,14 @@ body.dark-mode .sort-buttons button{
 
 }
 
-.navbar img{
+
+.navbar img:not(.site-logo){
 
   width:60px;
 
 }
 
-.dark-mode .navbar img{
+.dark-mode .navbar img:not(.site-logo){
 
   filter:
   brightness(1.4)
@@ -2225,7 +2226,7 @@ body.dark-mode .sort-buttons button{
 }
 
 .site-logo{
-  width: clamp(140px, 14vw, 180px);
+  width: clamp(96px, 10vw, 120px);
   height: auto;
   display: block;
   object-fit: contain;
@@ -2234,13 +2235,13 @@ body.dark-mode .sort-buttons button{
 
 body.dark-mode .site-logo,
 .dark-mode .site-logo{
-  background: rgba(255, 255, 255, 0.08);
-  padding: 8px 14px;
-  border-radius: 18px;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+  background: rgba(255, 255, 255, 0.12);
+  padding: 6px 10px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
   filter:
-  brightness(1.12)
-  contrast(1.08)
-  drop-shadow(0 0 10px rgba(59,130,246,.35));
+  brightness(1.18)
+  contrast(1.12)
+  drop-shadow(0 0 10px rgba(59,130,246,.42));
 }
 
