@@ -833,3 +833,18 @@ if(sortZA){
   });
 
 }
+
+if(closeUserModal){
+
+  closeUserModal.addEventListener(
+    "click",
+    () => {
+
+      userModal.classList.remove(
+        "active"
+      );
+
+    }
+  );
+
+}
