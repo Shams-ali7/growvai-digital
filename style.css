@@ -1559,11 +1559,7 @@ body.dark-mode .logo-track img {
 body.dark-mode .loader-wrapper {
   background: #0f172a;
 }
-.site-logo{
-  width: 180px;
-  height: auto;
-  display: block;
-}
+
 @media (max-width: 640px) {
 
   .section {
@@ -1600,9 +1596,7 @@ body.dark-mode .loader-wrapper {
     padding: 14px 16px;
   }
 
-  .site-logo {
-    width: 120px;
-  }
+  
 
 }
 .scroll-progress {
@@ -2231,22 +2225,12 @@ body.dark-mode .sort-buttons button{
 }
 
 .site-logo{
-
-  width:90px;
-
-  background:white;
-
-  padding:6px;
-
-  border-radius:10px;
-
-  box-shadow:
-  0 0 15px rgba(255,255,255,0.3);
-
+  width: 160px;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
-.dark-mode .site-logo{
 
-  width: 120px;
-  height:auto;
-
+body.dark-mode .site-logo{
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
 }
