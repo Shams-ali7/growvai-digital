@@ -2232,7 +2232,7 @@ body.dark-mode .sort-buttons button{
 
 .site-logo{
 
-  width:80px;
+  width: 120px;
   height:auto;
 
   background:white;
@@ -2245,10 +2245,9 @@ body.dark-mode .sort-buttons button{
   0 0 15px rgba(255,255,255,0.3);
 
 }
+.dark-mode .site-logo{
 
-.site-logo{
-
-  width:100px;
+  width: 120px;
   height:auto;
 
 }
