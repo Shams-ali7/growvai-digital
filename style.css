@@ -2231,6 +2231,12 @@ body.dark-mode .sort-buttons button{
   object-fit: contain;
 }
 
-body.dark-mode .site-logo{
-  filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
+.dark-mode .site-logo{
+  filter:
+  drop-shadow(0 0 8px rgba(59,130,246,.8))
+  drop-shadow(0 0 15px rgba(59,130,246,.5));
+}
+
+.site-logo{
+  width: 220px;
 }
