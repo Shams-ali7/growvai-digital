@@ -596,6 +596,13 @@ function renderUsers(users){
         <h3>${user.name}</h3>
         <p>${user.email}</p>
         <p>${user.phone}</p>
+
+  <button
+    class="delete-user-btn"
+    data-id="${user.id}">
+    Delete User
+  </button>
+
       </div>
     `;
 
@@ -603,6 +610,31 @@ function renderUsers(users){
 
   pageNumber.innerText =
   `Page ${currentPage}`;
+
+  const deleteButtons =
+document.querySelectorAll(
+  ".delete-user-btn"
+);
+
+deleteButtons.forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    const userId =
+    Number(
+      button.dataset.id
+    );
+
+    allUsers =
+    allUsers.filter(user =>
+      user.id !== userId
+    );
+
+    renderUsers(allUsers);
+
+  });
+
+});
 
 }
 
