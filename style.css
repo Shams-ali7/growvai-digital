@@ -2232,14 +2232,13 @@ body.dark-mode .sort-buttons button{
 
 .site-logo{
 
-  width: 120px;
-  height:auto;
+  width:90px;
 
   background:white;
 
-  padding:8px;
+  padding:6px;
 
-  border-radius:12px;
+  border-radius:10px;
 
   box-shadow:
   0 0 15px rgba(255,255,255,0.3);
