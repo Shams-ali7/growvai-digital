@@ -2168,3 +2168,16 @@ body.dark-mode .filter-btn{
 .delete-user-btn:hover{
   opacity:0.8;
 }
+
+#userModal{
+  display:none;
+}
+
+#userModal.active{
+  display:flex;
+}
+
+#closeUserModal{
+  cursor:pointer;
+  font-size:30px;
+}

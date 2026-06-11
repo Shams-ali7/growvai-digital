@@ -570,6 +570,18 @@ document.getElementById("nextBtn");
 const pageNumber =
 document.getElementById("pageNumber");
 
+const userModal =
+document.getElementById("userModal");
+
+const closeUserModal =
+document.getElementById("closeUserModal");
+
+const userModalTitle =
+document.getElementById("userModalTitle");
+
+const userModalInfo =
+document.getElementById("userModalInfo");
+
 const sortAZ =
 document.getElementById("sortAZ");
 
@@ -603,6 +615,12 @@ function renderUsers(users){
     Delete User
   </button>
 
+<button
+  class="view-user-btn"
+  data-id="${user.id}">
+  View Details
+</button>
+
       </div>
     `;
 
@@ -631,6 +649,53 @@ deleteButtons.forEach(button => {
     );
 
     renderUsers(allUsers);
+
+  });
+
+});
+
+const viewButtons =
+document.querySelectorAll(
+  ".view-user-btn"
+);
+
+viewButtons.forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    const userId =
+    Number(button.dataset.id);
+
+    const selectedUser =
+    allUsers.find(user =>
+      user.id === userId
+    );
+
+    userModalTitle.innerText =
+    selectedUser.name;
+
+    userModalInfo.innerHTML = `
+      <strong>Email:</strong>
+      ${selectedUser.email}
+      <br><br>
+
+      <strong>Phone:</strong>
+      ${selectedUser.phone}
+      <br><br>
+
+      <strong>Website:</strong>
+      ${selectedUser.website}
+      <br><br>
+
+      <strong>Company:</strong>
+      ${selectedUser.company.name}
+      <br><br>
+
+      <strong>City:</strong>
+      ${selectedUser.address.city}
+    `;
+
+    userModal.classList.add("active");
 
   });
 
