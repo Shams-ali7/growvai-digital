@@ -1519,7 +1519,7 @@ body.dark-mode .trust-strip {
 
 body.dark-mode .logo-track img {
   background: #1e293b;
-  border-color: rgba(255,255,255,0.08);
+  border-color: rgb(243, 239, 239);
 }
 /* PREMIUM PAGE LOADER */
 
@@ -2227,5 +2227,21 @@ body.dark-mode .sort-buttons button{
 .dark-mode .nav-links a.active{
 
   color:#60a5fa;
+
+}
+
+.site-logo{
+
+  width:80px;
+  height:auto;
+
+  background:white;
+
+  padding:8px;
+
+  border-radius:12px;
+
+  box-shadow:
+  0 0 15px rgba(255,255,255,0.3);
 
 }
