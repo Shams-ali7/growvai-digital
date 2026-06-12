@@ -2276,3 +2276,7 @@ body.dark-mode .site-logo,
   color:#38bdf8;
 
 }
+
+#downloadBtn{
+  margin:20px 0;
+}

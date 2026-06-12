@@ -570,6 +570,9 @@ document.getElementById("nextBtn");
 const pageNumber =
 document.getElementById("pageNumber");
 
+const downloadBtn =
+document.getElementById("downloadBtn");
+
 const userModal =
 document.getElementById("userModal");
 
@@ -737,7 +740,7 @@ if(loadUsersBtn){
       loader.style.display = "none";
 
       renderUsers(allUsers);
-      
+
       updateStats(users);
 
 
@@ -862,5 +865,54 @@ if(closeUserModal){
 
     }
   );
+
+}
+
+if(downloadBtn){
+
+  downloadBtn.addEventListener("click", () => {
+
+    if(allUsers.length === 0){
+
+      alert(
+        "Please load users first!"
+      );
+
+      return;
+
+    }
+
+    let csv =
+    "Name,Email,Phone\n";
+
+    allUsers.forEach(user => {
+
+      csv +=
+      `${user.name},${user.email},${user.phone}\n`;
+
+    });
+
+    const blob =
+    new Blob(
+      [csv],
+      { type: "text/csv" }
+    );
+
+    const url =
+    window.URL.createObjectURL(blob);
+
+    const a =
+    document.createElement("a");
+
+    a.href = url;
+
+    a.download =
+    "users.csv";
+
+    a.click();
+
+    window.URL.revokeObjectURL(url);
+
+  });
 
 }
