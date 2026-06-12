@@ -916,3 +916,60 @@ if(downloadBtn){
   });
 
 }
+
+const newUserName =
+document.getElementById("newUserName");
+
+const newUserEmail =
+document.getElementById("newUserEmail");
+
+const addUserBtn =
+document.getElementById("addUserBtn");
+
+let customUsers =
+JSON.parse(
+  localStorage.getItem("customUsers")
+) || [];
+
+if(addUserBtn){
+
+  addUserBtn.addEventListener("click", () => {
+
+    const name =
+    newUserName.value.trim();
+
+    const email =
+    newUserEmail.value.trim();
+
+    if(name === "" || email === ""){
+
+      alert("Please fill all fields");
+
+      return;
+
+    }
+
+    const newUser = {
+
+      name: name,
+
+      email: email
+
+    };
+
+    customUsers.push(newUser);
+
+    localStorage.setItem(
+      "customUsers",
+      JSON.stringify(customUsers)
+    );
+
+    newUserName.value = "";
+
+    newUserEmail.value = "";
+
+    alert("User Saved Successfully ✅");
+
+  });
+
+}
