@@ -2280,3 +2280,35 @@ body.dark-mode .site-logo,
 #downloadBtn{
   margin:20px 0;
 }
+
+.add-user-section{
+
+  max-width:600px;
+
+  margin:40px auto;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:15px;
+
+}
+
+.add-user-section input{
+
+  padding:12px;
+
+  border-radius:10px;
+
+  border:1px solid #ccc;
+
+}
+
+.add-user-section button{
+
+  padding:12px;
+
+  cursor:pointer;
+
+}
