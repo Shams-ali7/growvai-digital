@@ -647,7 +647,7 @@ deleteButtons.forEach(button => {
     allUsers.filter(user =>
       user.id !== userId
     );
-
+     
     renderUsers(allUsers);
 
   });
@@ -703,6 +703,19 @@ viewButtons.forEach(button => {
 
 }
 
+function updateStats(users){
+
+  document.getElementById("totalUsers").innerText =
+  users.length;
+
+  document.getElementById("totalEmails").innerText =
+  users.length;
+
+  document.getElementById("totalCities").innerText =
+  users.length;
+
+}
+
 if(loadUsersBtn){
 
   loadUsersBtn.addEventListener("click", () => {
@@ -724,6 +737,9 @@ if(loadUsersBtn){
       loader.style.display = "none";
 
       renderUsers(allUsers);
+      
+      updateStats(users);
+
 
     })
 
