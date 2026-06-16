@@ -964,11 +964,42 @@ if(addUserBtn){
       JSON.stringify(customUsers)
     );
 
+    renderCustomUsers();
+
     newUserName.value = "";
 
     newUserEmail.value = "";
 
     alert("User Saved Successfully ✅");
+
+  });
+
+}
+
+const customUsersContainer =
+document.getElementById(
+  "customUsersContainer"
+);
+
+function renderCustomUsers(){
+
+  if(!customUsersContainer) return;
+
+  customUsersContainer.innerHTML = "";
+
+  customUsers.forEach(user => {
+
+    customUsersContainer.innerHTML += `
+
+      <div class="service-card">
+
+        <h3>${user.name}</h3>
+
+        <p>${user.email}</p>
+
+      </div>
+
+    `;
 
   });
 
