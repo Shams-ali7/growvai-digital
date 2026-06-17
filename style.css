@@ -2314,75 +2314,32 @@ body.dark-mode .site-logo,
 }
 
 #customUsersContainer{
-
   display:grid;
-
-  gap:15px;
-
-}
-
-#userList {
-
-  display: grid;
-
   grid-template-columns:
   repeat(auto-fit,minmax(280px,1fr));
-
-  gap:20px;
-
-  margin-top:30px;
-
+  gap:25px;
+  margin-top:40px;
 }
 
 .add-user-card{
-
   background:#1e293b;
-
   padding:25px;
-
   border-radius:20px;
-
   border:1px solid rgba(255,255,255,0.08);
 
+  min-height:180px;
+
+  transition:0.3s;
+}
+
+.add-user-card:hover{
+  transform:translateY(-5px);
 }
 
 .add-user-card h3{
-
-  color:white;
-
   margin-bottom:10px;
-
 }
 
 .add-user-card p{
-
-  color:#cbd5e1;
-
-}
-
-#customUsersContainer{
-
-  display:grid !important;
-
-  grid-template-columns:
-  repeat(auto-fit,minmax(280px,1fr)) !important;
-
-  gap:20px !important;
-
-  margin-top:30px !important;
-
-}
-
-.add-user-card{
-
-  background:#1e293b !important;
-
-  padding:25px !important;
-
-  border-radius:20px !important;
-
-  min-height:180px !important;
-
-  width:auto !important;
-
+  margin-bottom:15px;
 }
