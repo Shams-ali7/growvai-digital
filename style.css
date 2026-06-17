@@ -2313,7 +2313,7 @@ body.dark-mode .site-logo,
 
 }
 
-#savedUsers{
+#customUsersContainer{
 
   display:grid;
 
@@ -2328,7 +2328,7 @@ body.dark-mode .site-logo,
   grid-template-columns:
   repeat(auto-fit,minmax(280px,1fr));
 
-  gap:25px;
+  gap:20px;
 
   margin-top:30px;
 
@@ -2342,16 +2342,7 @@ body.dark-mode .site-logo,
 
   border-radius:20px;
 
-  border:1px solid
-  rgba(255,255,255,0.08);
-
-  transition:0.3s;
-
-}
-
-.add-user-card:hover{
-
-  transform:translateY(-5px);
+  border:1px solid rgba(255,255,255,0.08);
 
 }
 

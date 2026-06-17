@@ -991,15 +991,15 @@ function renderCustomUsers(){
 
     customUsersContainer.innerHTML += `
 
-      <div class="service-card">
+  <div class="add-user-card">
 
-        <h3>${user.name}</h3>
+    <h3>${user.name}</h3>
 
-        <p>${user.email}</p>
+    <p>${user.email}</p>
 
-      </div>
+  </div>
 
-    `;
+`;
 
   });
 
