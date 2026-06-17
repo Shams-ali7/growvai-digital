@@ -2313,9 +2313,7 @@ body.dark-mode .site-logo,
 
 }
 
-#customUsersContainer{
-
-  margin-top:30px;
+#savedUsers{
 
   display:grid;
 
@@ -2328,44 +2326,45 @@ body.dark-mode .site-logo,
   display: grid;
 
   grid-template-columns:
-  repeat(auto-fit, minmax(280px, 1fr));
+  repeat(auto-fit,minmax(280px,1fr));
 
-  gap: 20px;
+  gap:25px;
 
-  margin-top: 30px;
-
-}
-
-.user-card {
-
-  background: #1e293b;
-
-  padding: 25px;
-
-  border-radius: 15px;
-
-  border: 1px solid rgba(255,255,255,0.1);
-
-  transition: 0.3s;
+  margin-top:30px;
 
 }
 
-.user-card:hover {
+.add-user-card{
 
-  transform: translateY(-5px);
+  background:#1e293b;
+
+  padding:25px;
+
+  border-radius:20px;
+
+  border:1px solid
+  rgba(255,255,255,0.08);
+
+  transition:0.3s;
 
 }
 
-.user-card h3 {
+.add-user-card:hover{
 
-  margin-bottom: 10px;
-
-  color: white;
+  transform:translateY(-5px);
 
 }
 
-.user-card p {
+.add-user-card h3{
 
-  color: #cbd5e1;
+  color:white;
+
+  margin-bottom:10px;
+
+}
+
+.add-user-card p{
+
+  color:#cbd5e1;
 
 }
