@@ -2359,3 +2359,30 @@ body.dark-mode .site-logo,
   color:#cbd5e1;
 
 }
+
+#customUsersContainer{
+
+  display:grid !important;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(280px,1fr)) !important;
+
+  gap:20px !important;
+
+  margin-top:30px !important;
+
+}
+
+.add-user-card{
+
+  background:#1e293b !important;
+
+  padding:25px !important;
+
+  border-radius:20px !important;
+
+  min-height:180px !important;
+
+  width:auto !important;
+
+}
