@@ -998,6 +998,13 @@ function renderCustomUsers(){
         <p>${user.email}</p>
 
         <button
+          class="edit-custom-user"
+          data-index="${index}"
+       >
+          Edit
+        </button>
+
+        <button
           class="delete-custom-user"
           data-index="${index}"
         >
@@ -1039,4 +1046,65 @@ function attachDeleteEvents(){
     });
 
   });
+}
+
+
+function attachEditEvents(){
+
+  const editButtons =
+  document.querySelectorAll(
+    ".edit-custom-user"
+  );
+
+  editButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      const index =
+      button.dataset.index;
+
+      const user =
+      customUsers[index];
+
+      const newName =
+      prompt(
+        "Edit Name",
+        user.name
+      );
+
+      const newEmail =
+      prompt(
+        "Edit Email",
+        user.email
+      );
+
+      if(
+        newName &&
+        newEmail
+      ){
+
+        customUsers[index] = {
+
+          name:newName,
+
+          email:newEmail
+
+        };
+
+        localStorage.setItem(
+
+          "customUsers",
+
+          JSON.stringify(customUsers)
+
+        );
+
+        renderCustomUsers();
+
+      }
+
+    });
+
+  });
+
 }
