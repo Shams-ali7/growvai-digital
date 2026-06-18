@@ -983,6 +983,18 @@ document.getElementById(
 
 function renderCustomUsers(){
 
+  const totalUsers =
+document.getElementById(
+  "totalUsers"
+);
+
+if(totalUsers){
+
+  totalUsers.innerText =
+  customUsers.length;
+
+}
+
   if(!customUsersContainer) return;
 
   customUsersContainer.innerHTML = "";

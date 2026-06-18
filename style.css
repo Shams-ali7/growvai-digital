@@ -2397,3 +2397,25 @@ body.dark-mode .site-logo,
   background:#1d4ed8;
 
 }
+
+.user-stats{
+
+  text-align:center;
+
+  margin:30px 0;
+
+  padding:20px;
+
+  background:#0f172a;
+
+  border-radius:15px;
+
+}
+
+.user-stats h3{
+
+  color:white;
+
+  margin:0;
+
+}
