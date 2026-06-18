@@ -987,20 +987,56 @@ function renderCustomUsers(){
 
   customUsersContainer.innerHTML = "";
 
-  customUsers.forEach(user => {
+  customUsers.forEach((user,index) => {
 
     customUsersContainer.innerHTML += `
 
-  <div class="add-user-card">
+      <div class="add-user-card">
 
-    <h3>${user.name}</h3>
+        <h3>${user.name}</h3>
 
-    <p>${user.email}</p>
+        <p>${user.email}</p>
 
-  </div>
+        <button
+          class="delete-custom-user"
+          data-index="${index}"
+        >
+          Delete
+        </button>
 
-`;
+      </div>
+
+    `;
 
   });
 
+  attachDeleteEvents();
+
+}
+function attachDeleteEvents(){
+
+  const deleteButtons =
+  document.querySelectorAll(
+    ".delete-custom-user"
+  );
+
+  deleteButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      const index =
+      button.dataset.index;
+
+      customUsers.splice(index,1);
+
+      localStorage.setItem(
+        "customUsers",
+        JSON.stringify(customUsers)
+      );
+
+      renderCustomUsers();
+
+    });
+
+  });
 }
