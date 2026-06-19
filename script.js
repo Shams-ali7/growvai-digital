@@ -1150,23 +1150,25 @@ function attachViewEvents(){
 
     button.addEventListener("click",()=>{
 
+      console.log("VIEW BUTTON CLICKED");
+
       document.getElementById(
-      "modalUserName"
+        "modalUserName"
       ).innerText =
       customUsers[index].name;
 
       document.getElementById(
-      "modalUserEmail"
+        "modalUserEmail"
       ).innerText =
       customUsers[index].email;
 
       document.getElementById(
-      "modalUserId"
+        "modalUserId"
       ).innerText =
       customUsers[index].id;
 
       document.getElementById(
-      "modalUserDate"
+        "modalUserDate"
       ).innerText =
       customUsers[index].joined;
 
