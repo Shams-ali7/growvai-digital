@@ -951,9 +951,13 @@ if(addUserBtn){
 
     const newUser = {
 
+      id: Date.now(),
+
       name: name,
 
-      email: email
+      email: email,
+
+     joined: new Date().toLocaleDateString()
 
     };
 
@@ -1009,6 +1013,10 @@ if(totalUsers){
 
         <p>${user.email}</p>
 
+        <button class="view-btn">
+          View Details
+        </button>
+
         <button
           class="edit-custom-user"
           data-index="${index}"
@@ -1031,6 +1039,7 @@ if(totalUsers){
 
   attachDeleteEvents();
   attachEditEvents();
+  attachViewEvents();
 
 }
 function attachDeleteEvents(){
@@ -1119,5 +1128,60 @@ function attachEditEvents(){
     });
 
   });
+
+}
+
+function attachViewEvents(){
+
+  const viewButtons =
+  document.querySelectorAll(".view-btn");
+
+  const modal =
+  document.getElementById("userModal");
+
+  const closeModal =
+  document.getElementById("closeUserModal");
+
+  viewButtons.forEach((button,index)=>{
+
+    button.addEventListener("click",()=>{
+
+      document.getElementById(
+      "modalUserName"
+      ).innerText =
+      customUsers[index].name;
+
+      document.getElementById(
+      "modalUserEmail"
+      ).innerText =
+      customUsers[index].email;
+
+      document.getElementById(
+      "modalUserId"
+      ).innerText =
+      customUsers[index].id;
+
+      document.getElementById(
+      "modalUserDate"
+      ).innerText =
+      customUsers[index].joined;
+
+      modal.classList.add("active");
+
+    });
+
+  });
+
+  if(closeModal){
+
+    closeModal.onclick = ()=>{
+
+      modal.classList.remove(
+      "active"
+      );
+
+    };
+
+  }
 
 }
