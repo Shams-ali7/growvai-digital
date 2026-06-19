@@ -1105,13 +1105,17 @@ function attachEditEvents(){
         newEmail
       ){
 
-        customUsers[index] = {
+       customUsers[index] = {
 
-          name:newName,
+       id: customUsers[index].id,
 
-          email:newEmail
+       joined: customUsers[index].joined,
 
-        };
+       name: newName,
+
+       email: newEmail
+
+      }; 
 
         localStorage.setItem(
 
