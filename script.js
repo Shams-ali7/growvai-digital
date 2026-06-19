@@ -1137,6 +1137,15 @@ function attachEditEvents(){
 
 function attachViewEvents(){
 
+   button.addEventListener("click",()=>{
+
+      console.log("VIEW BUTTON CLICKED");
+
+      document.getElementById(
+        "modalUserName"
+      ).innerText =
+      customUsers[index].name;
+
   const viewButtons =
   document.querySelectorAll(".view-btn");
 
@@ -1147,15 +1156,6 @@ function attachViewEvents(){
   document.getElementById("closeUserModal");
 
   viewButtons.forEach((button,index)=>{
-
-    button.addEventListener("click",()=>{
-
-      console.log("VIEW BUTTON CLICKED");
-
-      document.getElementById(
-        "modalUserName"
-      ).innerText =
-      customUsers[index].name;
 
       document.getElementById(
         "modalUserEmail"
