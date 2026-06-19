@@ -1038,7 +1038,9 @@ if(totalUsers){
   });
 
   attachDeleteEvents();
+
   attachEditEvents();
+
   attachViewEvents();
 
 }
@@ -1137,57 +1139,57 @@ function attachEditEvents(){
 
 function attachViewEvents(){
 
-   button.addEventListener("click",()=>{
+const viewButtons =
+document.querySelectorAll(".view-btn");
 
-      console.log("VIEW BUTTON CLICKED");
+const modal =
+document.getElementById("userModal");
 
-      document.getElementById(
-        "modalUserName"
-      ).innerText =
-      customUsers[index].name;
+const closeModal =
+document.getElementById("closeUserModal");
 
-  const viewButtons =
-  document.querySelectorAll(".view-btn");
+viewButtons.forEach((button,index)=>{
 
-  const modal =
-  document.getElementById("userModal");
+button.addEventListener("click",()=>{
 
-  const closeModal =
-  document.getElementById("closeUserModal");
+  console.log("VIEW BUTTON CLICKED");
 
-  viewButtons.forEach((button,index)=>{
+  console.log(customUsers[index]);
 
-      document.getElementById(
-        "modalUserEmail"
-      ).innerText =
-      customUsers[index].email;
+  document.getElementById(
+    "modalUserName"
+  ).innerText =
+  customUsers[index].name;
 
-      document.getElementById(
-        "modalUserId"
-      ).innerText =
-      customUsers[index].id;
+  document.getElementById(
+    "modalUserEmail"
+  ).innerText =
+  customUsers[index].email;
 
-      document.getElementById(
-        "modalUserDate"
-      ).innerText =
-      customUsers[index].joined;
+  document.getElementById(
+    "modalUserId"
+  ).innerText =
+  customUsers[index].id;
 
-      modal.classList.add("active");
+  document.getElementById(
+    "modalUserDate"
+  ).innerText =
+  customUsers[index].joined;
 
-    });
+  modal.classList.add("active");
 
-  });
+});
 
-  if(closeModal){
+});
 
-    closeModal.onclick = ()=>{
+if(closeModal){
 
-      modal.classList.remove(
-      "active"
-      );
+closeModal.onclick = ()=>{
 
-    };
+  modal.classList.remove("active");
 
-  }
+};
+
+}
 
 }
