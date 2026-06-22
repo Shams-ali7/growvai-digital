@@ -2450,7 +2450,7 @@ body.dark-mode .site-logo,
 
 }
 
-.user-modal-content{
+.modal-content{
 
   background:white;
 
@@ -2461,14 +2461,18 @@ body.dark-mode .site-logo,
   width:400px;
 
   max-width:90%;
-
-  text-align:left;
-
   position:relative;
 
 }
 
-.user-modal-content h2{
+body.dark-mode .modal-content{
+
+  background:#1e293b;
+  color:white;
+
+}
+
+.modal-content h2{
 
   margin-bottom:20px;
 
@@ -2488,7 +2492,7 @@ body.dark-mode .site-logo,
 
 }
 
-body.dark-mode .user-modal-content{
+body.dark-mode .modal-content{
 
   background:#1e293b;
 
