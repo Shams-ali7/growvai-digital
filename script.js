@@ -1192,7 +1192,7 @@ closeModal.onclick = ()=>{
 
 }
 
-window.addEventListener("click",(e)=>{
+modal.addEventListener("click",(e)=>{
 
   if(e.target === modal){
 
@@ -1201,5 +1201,4 @@ window.addEventListener("click",(e)=>{
   }
 
 });
-
 }
