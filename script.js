@@ -1192,4 +1192,14 @@ closeModal.onclick = ()=>{
 
 }
 
+window.addEventListener("click",(e)=>{
+
+  if(e.target === modal){
+
+    modal.classList.remove("active");
+
+  }
+
+});
+
 }
