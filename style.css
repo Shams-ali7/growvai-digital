@@ -2499,3 +2499,51 @@ body.dark-mode .modal-content{
   color:white;
 
 }
+
+.user-modal-content{
+
+  background:#1e293b;
+
+  width:450px;
+
+  max-width:90%;
+
+  padding:30px;
+
+  border-radius:20px;
+
+  box-shadow:0 15px 40px rgba(0,0,0,.4);
+
+  color:white;
+
+}
+
+.user-modal-content p{
+
+  margin:15px 0;
+
+  font-size:16px;
+
+}
+
+.user-modal-content h2{
+
+  margin-bottom:25px;
+
+  text-align:center;
+
+}
+
+#closeUserModal{
+
+  position:absolute;
+
+  top:15px;
+
+  right:20px;
+
+  font-size:28px;
+
+  cursor:pointer;
+
+}
