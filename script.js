@@ -1003,6 +1003,29 @@ if(totalUsers){
 
   customUsersContainer.innerHTML = "";
 
+  const lastUserName =
+document.getElementById(
+  "lastUserName"
+);
+
+if(lastUserName){
+
+  if(customUsers.length > 0){
+
+    lastUserName.innerText =
+    customUsers[
+      customUsers.length - 1
+    ].name;
+
+  }else{
+
+    lastUserName.innerText =
+    "None";
+
+  }
+
+}
+
   customUsers.forEach((user,index) => {
 
     customUsersContainer.innerHTML += `
