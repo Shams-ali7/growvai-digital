@@ -2599,3 +2599,47 @@ body.dark-mode .stats-card{
   color:white;
 
 }
+
+#toast{
+
+  position:fixed;
+
+  top:30px;
+
+  right:30px;
+
+  background:#2563eb;
+
+  color:white;
+
+  padding:16px 24px;
+
+  border-radius:12px;
+
+  font-size:16px;
+
+  font-weight:600;
+
+  box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+  opacity:0;
+
+  visibility:hidden;
+
+  transform:translateY(-20px);
+
+  transition:all .4s ease;
+
+  z-index:99999;
+
+}
+
+#toast.show{
+
+  opacity:1;
+
+  visibility:visible;
+
+  transform:translateY(0);
+
+}

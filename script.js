@@ -974,7 +974,7 @@ if(addUserBtn){
 
     newUserEmail.value = "";
 
-    alert("User Saved Successfully ✅");
+    showToast("User Saved Successfully ✅");
 
   });
 
@@ -1224,5 +1224,23 @@ modal.addEventListener("click",(e)=>{
   }
 
 });
+
+}
+
+const toast = document.getElementById("toast");
+
+function showToast(message){
+
+  if(!toast) return;
+
+  toast.innerText = message;
+
+  toast.classList.add("show");
+
+  setTimeout(()=>{
+
+    toast.classList.remove("show");
+
+  },3000);
 
 }
